@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
 import {
-  useDeleteUserMutation,
   useGetRolesQuery,
   useGetUsersQuery,
   useUpdateUserRoleMutation,
@@ -14,7 +13,7 @@ import MiniSpinner from "../../Common/MiniSpinner";
 import { LiaEdit } from "react-icons/lia";
 import { BsTextIndentLeft, BsTrash } from "react-icons/bs";
 import { Modal } from "../../Components";
-import { useModal } from "../../Helper";
+
 import { useSelector } from "react-redux";
 import { RootState } from "../../Storage/Redux/store";
 import { SD_SortTypes } from "../../Utility/SD";

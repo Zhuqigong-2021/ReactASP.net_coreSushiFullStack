@@ -25,7 +25,7 @@ const MenuItemList = () => {
   const [sortName, setSortName] = useState(SD_SortTypes.NAME_A_Z);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const { data, isLoading } = useGetMenuItemsQuery(null);
-  let arr = ["All", "Appetizer", "Dessert", "Drink", "Entrée"];
+  // let arr = ["All", "Appetizer", "Dessert", "Drink", "Entrée"];
   const sortOptions: Array<SD_SortTypes> = [
     SD_SortTypes.PRICE_LOW_HIGH,
     SD_SortTypes.PRICE_HIGH_LOW,

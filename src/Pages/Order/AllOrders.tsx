@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { useGetAllOrdersQuery } from "../../Apis/orderApi";
 import MainSpinner from "../../Common/MainSpinner";
 import OrderList from "../../Components/Order/OrderList";
-import { withAdminAuth } from "../../HOC";
+
 import { SD_Status } from "../../Utility/SD";
 import { BsTextIndentLeft } from "react-icons/bs";
 
-import orderHeaderModel from "../../interfaces/orderHeaderModel";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Storage/Redux/store";
 import {

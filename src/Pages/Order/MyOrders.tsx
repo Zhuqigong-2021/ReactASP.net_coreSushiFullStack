@@ -6,10 +6,9 @@ import MainSpinner from "../../Common/MainSpinner";
 import { useGetAllOrdersQuery } from "../../Apis/orderApi";
 
 import OrderList from "../../Components/Order/OrderList";
-import { SD_Status } from "../../Utility/SD";
+
 import { useEffect, useState } from "react";
 import orderHeaderModel from "../../interfaces/orderHeaderModel";
-import orderDetailModel from "../../interfaces/orderDetailModel";
 
 function MyOrders() {
   const userId = useSelector((state: RootState) => state.userAuthStore.id);
@@ -39,14 +38,6 @@ function MyOrders() {
       setUserData(data?.apiResponse.result);
     }
   }, [searchValue]);
-  console.log(userId);
-  const filterOptions = [
-    "All",
-    SD_Status.CONFIRMED,
-    SD_Status.BEING_COOKED,
-    SD_Status.READY_FOR_PICKUP,
-    SD_Status.CANCELLED,
-  ];
 
   return (
     <>
