@@ -44,7 +44,7 @@ const OrderList = ({ isLoading, orderData }: OrderListProps) => {
                     {orderItem.pickupPhoneNumber}
                   </div>
                   <div className="flex items-center">
-                    {(orderItem.orderTotal! * 1.15).toFixed(2)}
+                    {orderItem.orderTotal!.toFixed(2)}
                   </div>
                   <div className="flex items-center">
                     {orderItem.totalItems}
@@ -54,7 +54,7 @@ const OrderList = ({ isLoading, orderData }: OrderListProps) => {
                   </div>
                   <div>
                     <span
-                      className={`${"text-" + badgeTypeColor} p-1 rounded-sm `}
+                      className={`${"text-" + badgeTypeColor} p-1 rounded-sm  `}
                     >
                       {orderItem.status}
                     </span>

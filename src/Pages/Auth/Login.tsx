@@ -27,6 +27,15 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!userInput.userName) {
+      setError("user name is empty");
+      return;
+    }
+    if (!userInput.password) {
+      setError("password is empty");
+      return;
+    }
+
     setLoading(true);
     const response: apiResponse = await loginUser({
       userName: userInput.userName,
@@ -37,6 +46,7 @@ const Login = () => {
 
       const { fullName, id, email, role }: userModel = jwt_decode(token);
       localStorage.setItem("token", token);
+      console.log(response.data.result);
       dispatch(setLoggedInUser({ fullName, id, email, role }));
       navigate("/");
     } else if (response.error) {
@@ -48,9 +58,12 @@ const Login = () => {
   return (
     <section className="flex-1 bg-gray-100 flex w-full justify-center items-center  ">
       {isLoading && (
-        // <div className="flex-1 w-full flex justify-center items-center">
-        <MainSpinner />
-        // </div>
+        <div
+          className="flex-1 w-full flex justify-center items-center"
+          data-testid="No data"
+        >
+          <MainSpinner />
+        </div>
       )}
       {!isLoading && (
         <div className="flex flex-col  items-center  justify-center min-w-[380px]">
@@ -77,7 +90,7 @@ const Login = () => {
               >
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="userName"
                     className="block mb-2 text-sm font-medium text-gray-900 "
                   >
                     Your email
@@ -87,10 +100,9 @@ const Login = () => {
                     name="userName"
                     value={userInput.userName}
                     onChange={handleUserInput}
-                    id="email"
+                    id="userName"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600"
                     placeholder="name@company.com"
-                    required
                   />
                 </div>
                 <div>
@@ -104,7 +116,6 @@ const Login = () => {
                     type="password"
                     name="password"
                     id="password"
-                    required
                     value={userInput.password}
                     onChange={handleUserInput}
                     placeholder="••••••••"

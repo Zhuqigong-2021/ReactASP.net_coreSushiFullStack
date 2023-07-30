@@ -10,7 +10,7 @@ const ShoppingCart = (props: CartProps) => {
   const { width } = useScreenSize();
   return (
     <div
-      className="h-screen  top-0 right-0 lg:static  bg-white"
+      className="h-screen overflow-y-scroll  top-0 right-0 lg:static  bg-white"
       style={{
         position: width > 1450 ? "static" : "absolute",
         width: isToggle

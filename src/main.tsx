@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { store } from "./Storage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { setupStore } from "./test/utils/store.ts";
+// const store = setupStore({});
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>

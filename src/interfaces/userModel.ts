@@ -4,4 +4,5 @@ export default interface userModel {
   email: string;
   role?: string;
   phoneNumber?: string;
+  imgUrl?: string;
 }

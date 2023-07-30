@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const orderApi = createApi({
   reducerPath: "orderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://sushiapi1.azurewebsites.net/api/",
+    baseUrl: "https://sushibackend.azurewebsites.net/api/",
     // baseUrl: "https://localhost:7268/api",
     prepareHeaders: (headers: Headers) => {
       const token = localStorage.getItem("token");

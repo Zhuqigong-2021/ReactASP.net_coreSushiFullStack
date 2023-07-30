@@ -2,7 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://sushiapi1.azurewebsites.net/api/",
+    baseUrl: "https://sushibackend.azurewebsites.net/api/",
+    // baseUrl: "https://sushiapi1.azurewebsites.net/api/",
   }),
   tagTypes: ["Users", "Roles"],
   endpoints: (builder) => ({

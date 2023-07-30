@@ -13,12 +13,13 @@ const Profile = () => {
   const userData: userModel = useSelector(
     (state: RootState) => state.userAuthStore
   );
-  const { data, isLoading } = useGetUsersQuery(null);
+  const { data, isLoading } = useGetUsersQuery({ searchString: userData?.id });
   useEffect(() => {
     if (!isLoading) {
       let foundUser = data?.apiResponse.result.filter(
         (u: userModel) => u.id == userData.id
       )[0];
+
       setOneUserData(foundUser);
     }
   }, [isLoading, data]);
@@ -34,16 +35,18 @@ const Profile = () => {
   useEffect(() => {
     console.log(phoneNumber);
   }, [phoneNumber]);
-  console.log(oneUserData);
+
   return (
-    <div className="bg-gray-50 h-full p-6 py-12 justify-start flex items-start">
-      <div>
-        <div className="h-32 w-32">
-          <img
-            src="https://randomuser.me/portraits/men/1.jpg"
-            alt=""
-            className="rounded-full h-full w-full "
-          />
+    <div className="bg-gray-50 h-full p-6 py-12 justify-center flex items-start">
+      <div className="w-full px-4">
+        <div className="flex justify-between relative bg-indigo-400 px-2 py-6 w-full rounded-t-lg">
+          <div className="h-32 w-32">
+            <img
+              src={"https://randomuser.me/portraits/men/1.jpg"}
+              alt=""
+              className="rounded-full h-full w-full "
+            />
+          </div>
         </div>
 
         <h2 className="font-extrabold text-2xl mt-6">

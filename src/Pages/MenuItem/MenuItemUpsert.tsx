@@ -8,13 +8,6 @@ import {
   useUpdateMenuItemMutation,
 } from "../../Apis/menuItemApi";
 import { SD_Categories } from "../../Utility/SD";
-const menuItemData = {
-  name: "",
-  description: "",
-  specialTag: "",
-  category: "",
-  price: "",
-};
 const Categories = [
   SD_Categories.APPETIZER,
   SD_Categories.DRINK,
@@ -22,6 +15,13 @@ const Categories = [
   SD_Categories.ENTREE,
   SD_Categories.SUSHI,
 ];
+const menuItemData = {
+  name: "",
+  description: "",
+  specialTag: "",
+  category: Categories[0],
+  price: "",
+};
 
 const MenuItemUpsert = () => {
   const { id } = useParams();
@@ -62,7 +62,7 @@ const MenuItemUpsert = () => {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
     if (file) {
-      console.log(file);
+      // console.log(file);
       const imgType = file.type.split("/")[1];
       const validImgTypes = ["jpeg", "jpg", "png"];
 
@@ -182,8 +182,10 @@ const MenuItemUpsert = () => {
                   value={menuItemInputs.category}
                   onChange={handleMenuItemInput}
                 >
-                  {Categories.map((category) => (
-                    <option value={category}>{category}</option>
+                  {Categories.map((category, index) => (
+                    <option value={category} key={index}>
+                      {category}
+                    </option>
                   ))}
                 </select>
                 <input

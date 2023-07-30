@@ -74,7 +74,7 @@ function OrderSummary({ data, userInput }: orderSummaryProps) {
           <div className="flex  text-3xl justify-between items-center ">
             <h3 className="text-indigo-500 font-extrabold">Order Summary</h3>
             <span
-              className={`text-base p-2 rounded-lg text-white ${"bg-" +
+              className={`text-base p-2 rounded-lg text-white  ${"bg-" +
                 badgeTypeColor}`}
             >
               {data.status}

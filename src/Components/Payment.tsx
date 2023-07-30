@@ -16,7 +16,7 @@ const Payment = () => {
     clientSecret: apiResult.clientSecret,
   };
   return (
-    <div className="bg-gray-50 h-full p-0 lg:p-6 md:p-6 w-full">
+    <div className="bg-gray-50 h-full p-0 lg:p-6 md:p-6 w-full ">
       <Elements stripe={stripePromise} options={options}>
         <div className=" m-5 p-0 md:p-5 lg:p-5">
           <div className="flex flex-col space-x-6s md:flex-row lg:flex-row">
