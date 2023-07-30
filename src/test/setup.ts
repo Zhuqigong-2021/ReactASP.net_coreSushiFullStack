@@ -7,7 +7,7 @@ import { setupStore } from "./utils/store";
 const store = setupStore({});
 
 export const handlers = [
-  rest.post("api/auth/login", (req, res, ctx) => {
+  rest.post("api/auth/login", (_req, res, ctx) => {
     return res(
       ctx.json({
         email: "admin@gmail.com",
